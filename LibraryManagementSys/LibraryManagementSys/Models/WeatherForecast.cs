@@ -1,4 +1,4 @@
-namespace LibraryManagementSys
+namespace LibraryManagementSys.Models
 {
     public class WeatherForecast
     {

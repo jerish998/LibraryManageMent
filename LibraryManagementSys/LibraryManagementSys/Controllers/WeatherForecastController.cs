@@ -1,3 +1,4 @@
+using LibraryManagementSys.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagementSys.Controllers
