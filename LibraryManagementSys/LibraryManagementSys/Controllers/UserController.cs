@@ -8,12 +8,12 @@ namespace LibraryManagementSys.Controllers
     [ApiController]
     public class UserController : Controller
     {
-        [HttpPost({newuser})]
-        public IActionResult AddUser(User user_details)
+        [HttpPost]
+        public async Task<IActionResult>  AddUser(User user_details)
         {
-        if (user_details.UserId.ToString().Any())
+        if (!user_details.ContactNumber.Any())
         {
-            Console.WriteLine("invalid user");
+                return BadRequest("Requires Data missing");
         }
 
 
