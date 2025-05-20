@@ -2,17 +2,20 @@
 
 namespace LibraryManagementSys.Services
 {
-    public class UserService : IUserService
+    public class UserService 
     {
         #region const
         private readonly DbConnectionApp db_connection_app;
+        private readonly IUserService _user_service;
         #endregion
 
-        public UserService() { }
+        public UserService(IUserService userService) {
+            _user_service = userService;
+        }
 
-        public async Task CreateUser()
+        public async Task CreateUser(User)
         {
-
+            
         }
 
         public async Task FindUser()

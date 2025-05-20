@@ -8,6 +8,14 @@ namespace LibraryManagementSys.Controllers
     [ApiController]
     public class UserController : Controller
     {
+        #region const 
+        private readonly UserService _userService;
+        public UserController(UserService userService)
+        {
+            _userService = userService;
+        }
+
+        #endregion
         [HttpPost]
         public async Task<IActionResult>  AddUser(User user_details)
         {
@@ -16,7 +24,8 @@ namespace LibraryManagementSys.Controllers
                 return BadRequest("Requires Data missing");
         }
 
-
+           var result = await _userService.CreateUser();
+            
 
 
 
