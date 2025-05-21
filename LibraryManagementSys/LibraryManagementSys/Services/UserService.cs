@@ -1,21 +1,29 @@
 ﻿using LibraryManagementSys.DbContextApp;
+using LibraryManagementSys.Models;
+using DTO;
 
 namespace LibraryManagementSys.Services
 {
     public class UserService 
     {
         #region const
-        private readonly DbConnectionApp db_connection_app;
+        private readonly DbConnectionApp _db_connection_app;
         private readonly IUserService _user_service;
         #endregion
 
-        public UserService(IUserService userService) {
+        public UserService(IUserService userService, DbConnectionApp dbConnectionApp) {
             _user_service = userService;
+            _db_connection_app =  dbConnectionApp;
         }
 
-        public async Task CreateUser(User)
+        public async Task CreateUser(UserDto user_dto)
         {
-            
+            if (user == null) { 
+            return ()
+            }
+            await _db_connection_app.(user_dto);
+
+
         }
 
         public async Task FindUser()
