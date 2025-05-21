@@ -1,5 +1,6 @@
 <template>
-  <form @submit.prevent="() => {}" novalidate>
+  <form >
+    
     <div class="flex flex-col mx-auto md:w-96 w-full">
       <h1 class="text-2xl font-bold mb-4 text-center">Register</h1>
       <div class="flex flex-col gap-2 mb-4">
@@ -55,8 +56,21 @@
       <div class="border-t h-[1px] my-6"></div>
  
       <div class="flex flex-col gap-2">
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary" @click="handleClick">Register</button>
       </div>
     </div>
   </form>
 </template>
+
+<script>
+export default{
+methods:{
+
+handleClick(){
+    console.log("Handele click");
+}
+
+
+}
+}
+</script>
