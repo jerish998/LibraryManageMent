@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LibraryManagementSys.Models;
 using LibraryManagementSys.Services;
+using DTO;
 
 namespace LibraryManagementSys.Controllers
 {
@@ -23,9 +24,12 @@ namespace LibraryManagementSys.Controllers
         {
                 return BadRequest("Requires Data missing");
         }
+        UserDto user_dto = new UserDto();
+            user_dto.Name = user_details.UserName;
+            user_dto.Password = user_details.Password;
+            user_dto.Email = user_details.Email;
+              await _userService.CreateUser(user_dto);
 
-           var result = await _userService.CreateUser();
-            
 
 
 

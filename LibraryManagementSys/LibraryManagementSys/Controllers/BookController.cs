@@ -15,12 +15,10 @@ namespace LibraryManagementSys.Controllers
 
         //api/Book/id
         [HttpGet()]
-        public async IActionResult BookDetails_Get(int id)
-        {
-        await  
-                Book book = new Book();
-            return Ok(book);
-        }
+        //public async IActionResult BookDetails_Get(int id)
+        //{
+        //    await 
+        //}
 
 
 

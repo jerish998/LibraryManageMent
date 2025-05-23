@@ -18,10 +18,10 @@ namespace LibraryManagementSys.Services
 
         public async Task CreateUser(UserDto user_dto)
         {
-            if (user == null) { 
-            return ()
+            if (user_dto == null) {
+                return ();
             }
-            await _db_connection_app.(user_dto);
+            await _db_connection_app.Insert(user_dto);
 
 
         }
