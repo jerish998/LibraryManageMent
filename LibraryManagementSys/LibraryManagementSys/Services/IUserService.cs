@@ -2,7 +2,7 @@
 {
     public interface IUserService
     {
-        Task CreateUser();
+        Task CreateUserAsync();
         Task FindUser();
         Task UpdateUser();
         Task DeleteUser();

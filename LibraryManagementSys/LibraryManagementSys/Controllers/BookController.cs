@@ -13,14 +13,15 @@ namespace LibraryManagementSys.Controllers
             return View();
         }
 
+        [HttpGet("ping")]
+        public IActionResult Ping() => Ok("pong");
+
         //api/Book/id
-        [HttpGet({id})]
-        public async IActionResult BookDetails_Get(int id)
-        {
-        await 
-            Book book = new Book();
-            return Ok(book);
-        }
+        // [HttpGet()]
+        //public async IActionResult BookDetails_Get(int id)
+        //{
+        //    await 
+        //}
 
 
 
