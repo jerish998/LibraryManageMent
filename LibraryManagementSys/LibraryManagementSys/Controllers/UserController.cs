@@ -2,6 +2,7 @@
 using LibraryManagementSys.Models;
 using LibraryManagementSys.Services;
 using DTO;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSys.Controllers
 {
@@ -20,7 +21,10 @@ namespace LibraryManagementSys.Controllers
         [HttpPost]
         public async Task<IActionResult>  AddUser(User user_details)
         {
-        if (!user_details.ContactNumber.Any())
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (!user_details.ContactNumber.Any())
         {
                 return BadRequest("Requires Data missing");
         }
@@ -31,8 +35,29 @@ namespace LibraryManagementSys.Controllers
               await _userService.CreateUser(user_dto);
 
 
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
 
+            return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
 
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> CreateUser([FromBody] UserCreateDto dto)
+        {
+           
+
+            var user = new User
+            {
+                FullName = dto.FullName,
+                Email = dto.Email
+            };
+
+           
+        }
+
+
+
     }
 }

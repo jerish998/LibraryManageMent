@@ -16,13 +16,13 @@ namespace LibraryManagementSys.Services
             _db_connection_app =  dbConnectionApp;
         }
 
-        public async Task CreateUser(UserDto user_dto)
+        public  Task CreateUser(UserDto user_dto)
         {
             if (user_dto == null) {
                 return ();
             }
-            await _db_connection_app.Insert(user_dto);
 
+            return Task.CompletedTask;
 
         }
 
