@@ -1,12 +1,15 @@
 ﻿using LibraryManagementSys.DbContextApp;
+
 using LibraryManagementSys.Models;
 using DTO;
+
 
 namespace LibraryManagementSys.Services
 {
     public class UserService 
     {
         #region const
+
         private readonly DbConnectionApp _db_connection_app;
         private readonly IUserService _user_service;
         #endregion
@@ -26,6 +29,8 @@ namespace LibraryManagementSys.Services
 
             return Task.CompletedTask;
 
+
+      
         }
 
         public async Task FindUser()
