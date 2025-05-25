@@ -19,7 +19,7 @@ namespace LibraryManagementSys.Services
         public  Task CreateUser(UserDto user_dto)
         {
             if (user_dto == null) {
-                return ();
+                return Task.CompletedTask;
             }
 
             return Task.CompletedTask;
