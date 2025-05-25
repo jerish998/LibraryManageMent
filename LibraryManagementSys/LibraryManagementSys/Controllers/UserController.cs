@@ -15,14 +15,22 @@ namespace LibraryManagementSys.Controllers
         public UserController(UserService userService)
         {
             _userService = userService;
+
         }
 
         #endregion
+      
+
         //[HttpPost]
         //public async Task<IActionResult>  AddUser(User user_details)
         //{
         //    if (!ModelState.IsValid)
         //        return BadRequest(ModelState);
+
+   //         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+
+   //     }
+
 
         //    if (!user_details.ContactNumber.Any())
         //{
@@ -56,6 +64,8 @@ namespace LibraryManagementSys.Controllers
 
            
         //}
+
+    
 
 
 
