@@ -30,7 +30,9 @@ public class Program
         var app = builder.Build();
 
         // Register custom middleware early in the pipeline
-        app.UseRequestLogging(); //Your custom middleware
+
+        //app.UseRequestLogging(); //Your custom middleware
+
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -39,9 +41,11 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
 
-        app.UseAuthorization();
+        //app.UseHttpsRedirection();
+
+        //app.UseAuthorization();
+
 
         app.MapControllers();
 

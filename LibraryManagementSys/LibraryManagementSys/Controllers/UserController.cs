@@ -16,7 +16,6 @@ namespace LibraryManagementSys.Controllers
         {
             _userService = userService;
 
-
         }
 
         #endregion
@@ -65,10 +64,6 @@ namespace LibraryManagementSys.Controllers
 
            
         //}
-
-    
-
-
 
 
     }
