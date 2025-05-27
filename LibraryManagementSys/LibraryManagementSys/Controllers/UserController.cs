@@ -22,11 +22,13 @@ namespace LibraryManagementSys.Controllers
         #endregion
       
 
+
         //[HttpPost]
         //public async Task<IActionResult>  AddUser(User user_details)
         //{
         //    if (!ModelState.IsValid)
         //        return BadRequest(ModelState);
+
 
    //         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
 
@@ -65,10 +67,6 @@ namespace LibraryManagementSys.Controllers
 
            
         //}
-
-    
-
-
 
 
     }
