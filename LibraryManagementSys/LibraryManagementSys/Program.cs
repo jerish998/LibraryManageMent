@@ -31,7 +31,9 @@ public class Program
 
         // Register custom middleware early in the pipeline
 
+
         //app.UseRequestLogging(); //Your custom middleware
+
 
 
         // Configure the HTTP request pipeline.
@@ -42,9 +44,11 @@ public class Program
         }
 
 
+
         //app.UseHttpsRedirection();
 
         //app.UseAuthorization();
+
 
 
         app.MapControllers();
