@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
+
 using LibraryManagementSys.Services;
 using Microsoft.AspNetCore.Http.HttpResults;
+using LibraryManagementSys.Models;
 
 namespace LibraryManagementSys.Controllers
 {
@@ -28,11 +30,7 @@ namespace LibraryManagementSys.Controllers
             return Unauthorized("unauthorized");
         }
 
-        public class LoginModels
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
-        }
+      
 
     }
 }
