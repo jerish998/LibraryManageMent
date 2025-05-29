@@ -1,4 +1,5 @@
-﻿using Unity;
+﻿using LibraryManagementSys.Services;
+using Unity;
 
 namespace LibraryManagementSys._Factories
 {
@@ -8,13 +9,18 @@ namespace LibraryManagementSys._Factories
         public LibManUnityContainerFactory(IUnityContainer container)
         {
 
-            _container = new UnityContainer();
+            
             _container = container;
+            RegisterDependencies(_container);
+            
         }
 
-        public void RegisterDependencies(IUnityContainer container)
+        public void RegisterDependencies(IUnityContainer conatiner)
         {
-            container.RegisterInstance(this);
+            //container.RegisterInstance(this);
+            conatiner.RegisterType<IAuthProviderService, AuthProviderService>();
+
+            
         }
 
 
