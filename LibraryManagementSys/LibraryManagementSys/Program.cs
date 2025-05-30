@@ -5,6 +5,8 @@ using LibraryManagementSys.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Unity;
+using Unity.Microsoft.DependencyInjection;
 
 public class Program
 {
@@ -13,7 +15,16 @@ public class Program
 
     public static void Main(string[] args)
     {
+
+    
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Host.UseUnityServiceProvider();
+
+
+
+
+
 
         builder.WebHost.ConfigureKestrel(serverOptions =>
         {
@@ -60,9 +71,14 @@ public class Program
         /*end jwt tokens*/
         builder.Services.AddAuthorization();
 
-        builder.Services.AddScoped<AuthProviderService>();
+        
 
-
+        // Register your services in Unity
+        builder.Host.ConfigureContainer<IUnityContainer>(container =>
+        {
+            container.RegisterType<IAuthProviderService, AuthProviderService>();
+            // Add more services here
+        });
 
 
         var app = builder.Build();
@@ -83,14 +99,10 @@ public class Program
 
 
 
-        //app.UseHttpsRedirection();
+        //app.UseHttpsRedirection()
         app.UseAuthentication();
         app.UseAuthorization();
-
-
-
         app.MapControllers();
-
         app.Run();
     }
 }
