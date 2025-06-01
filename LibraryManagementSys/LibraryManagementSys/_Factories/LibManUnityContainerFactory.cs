@@ -1,26 +1,23 @@
-﻿using LibraryManagementSys.Services;
+﻿using LibraryManagementSys.DbContextApp;
+using LibraryManagementSys.Services;
+using System.ComponentModel;
+using System.Xml.Linq;
 using Unity;
 
 namespace LibraryManagementSys._Factories
 {
-    public class LibManUnityContainerFactory
+    public static class LibManUnityContainerFactory
     {
-        private IUnityContainer _container;
-        public LibManUnityContainerFactory(IUnityContainer container)
-        {
+        
+       
 
-            
-            _container = container;
-            RegisterDependencies(_container);
-            
-        }
-
-        public void RegisterDependencies(IUnityContainer conatiner)
+        public static void RegisterDependencies(IUnityContainer container)
         {
             //container.RegisterInstance(this);
-            conatiner.RegisterType<IAuthProviderService, AuthProviderService>();
+            container.RegisterType<IAuthProviderService, AuthProviderService>();
+            container.RegisterType<IUserService, UserService>();
+            container.RegisterType<DbConnectionApp>();
 
-            
         }
 
 

@@ -2,5 +2,6 @@
 {
     public interface IAuthProviderService
     {
+        public string GenerateJwtToken(string username);
     }
 }

@@ -12,8 +12,8 @@ namespace LibraryManagementSys.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly AuthProviderService _authService;
-        public AuthController(AuthProviderService authProviderService) {
+        private readonly IAuthProviderService _authService;
+        public AuthController(IAuthProviderService authProviderService) {
             _authService = authProviderService;
         }
 

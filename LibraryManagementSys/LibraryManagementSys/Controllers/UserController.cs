@@ -11,16 +11,16 @@ namespace LibraryManagementSys.Controllers
     public class UserController : Controller
     {
         #region const 
-        private readonly UserService _userService;
-        public UserController(UserService userService)
+        private readonly IUserService _user_service;
+        public UserController(IUserService userService)
         {
-            _userService = userService;
+            _user_service = userService;
 
 
         }
 
         #endregion
-      
+
 
 
         //[HttpPost]
@@ -30,9 +30,9 @@ namespace LibraryManagementSys.Controllers
         //        return BadRequest(ModelState);
 
 
-   //         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+        //         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
 
-   //     }
+        //     }
 
 
         //    if (!user_details.ContactNumber.Any())
@@ -55,19 +55,33 @@ namespace LibraryManagementSys.Controllers
 
 
         //[HttpPost]
-        //public async Task<IActionResult> CreateUser([FromBody] UserCreateDto dto)
+        //public async Task<IActionResult> CreateUser()
         //{
-           
 
-        //    var user = new User
-        //    {
-        //        FullName = dto.FullName,
-        //        Email = dto.Email
-        //    };
 
-           
+        //    //var user = new User
+        //    //{
+        //    //    FullName = dto.FullName,
+        //    //    Email = dto.Email
+        //    //};
+
+        //   var s =  await _user_service.UserPing();
+        //    return Ok(s);
         //}
 
+        [HttpGet("userping")]
+        public async Task<IActionResult> UserPing()
+        {
 
+
+            //var user = new User
+            //{
+            //    FullName = dto.FullName,
+            //    Email = dto.Email
+            //};
+
+            var s = await _user_service.UserPing();
+            return Ok(s);
+        }
     }
 }
