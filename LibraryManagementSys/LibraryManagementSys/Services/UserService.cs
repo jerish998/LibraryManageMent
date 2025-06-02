@@ -2,6 +2,7 @@
 
 using LibraryManagementSys.Models;
 using DTO;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 
 namespace LibraryManagementSys.Services
@@ -37,9 +38,10 @@ namespace LibraryManagementSys.Services
       
         }
 
-        public async Task FindUser()
+        public async Task FindUser(int id)
         {
-
+            var user = new UserDto { Id = id };
+            return Task.FromResult(Ok);s
         }
         public async Task UpdateUser()
         {

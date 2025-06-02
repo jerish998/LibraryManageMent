@@ -21,53 +21,19 @@ namespace LibraryManagementSys.Controllers
 
         #endregion
 
+        [HttpGet("{id}")]
+        public IActionResult GetUser(int id)
+        {
+            var name = _user_service.FindUser(id);
+            return Ok(new { Id = id, Name = name });
+        }
 
 
-        //[HttpPost]
-        //public async Task<IActionResult>  AddUser(User user_details)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
 
 
-        //         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
-
-        //     }
 
 
-        //    if (!user_details.ContactNumber.Any())
-        //{
-        //        return BadRequest("Requires Data missing");
-        //}
-        //UserDto user_dto = new UserDto();
-        //    user_dto.Name = user_details.UserName;
-        //    user_dto.Password = user_details.Password;
-        //    user_dto.Email = user_details.Email;
-        //      await _userService.CreateUser(user_dto);
 
-
-        //    //_context.Users.Add(user);
-        //    //await _context.SaveChangesAsync();
-
-        //    //return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
-
-        //}
-
-
-        //[HttpPost]
-        //public async Task<IActionResult> CreateUser()
-        //{
-
-
-        //    //var user = new User
-        //    //{
-        //    //    FullName = dto.FullName,
-        //    //    Email = dto.Email
-        //    //};
-
-        //   var s =  await _user_service.UserPing();
-        //    return Ok(s);
-        //}
 
         [HttpGet("userping")]
         public async Task<IActionResult> UserPing()

@@ -7,7 +7,7 @@ namespace LibraryManagementSys.Services
 
         Task CreateUserAsync(UserDto user_dto);
 
-        Task FindUser();
+        Task FindUser(int id);
         Task UpdateUser();
         Task DeleteUser();
 
