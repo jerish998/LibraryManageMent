@@ -5,7 +5,9 @@ using System.Text;
 
 namespace LibraryManagementSys.Services
 {
-    public class AuthProviderService
+
+    public class AuthProviderService :IAuthProviderService
+
     {
         private readonly IConfiguration _config;
         public AuthProviderService(IConfiguration configuration)
@@ -29,7 +31,7 @@ namespace LibraryManagementSys.Services
                 expires: DateTime.UtcNow.AddMinutes(double.Parse(jwtSettings["ExpiresInMinutes"])),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
             );
-            Console.WriteLine($"jwt->{token}");
+            Console.WriteLine($"jwt{token}");
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

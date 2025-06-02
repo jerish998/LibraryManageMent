@@ -2,27 +2,32 @@
 
 using LibraryManagementSys.Models;
 using DTO;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 
 namespace LibraryManagementSys.Services
 {
-    public class UserService 
+    public class UserService : IUserService
     {
         #region const
 
         private readonly DbConnectionApp _db_connection_app;
-        private readonly IUserService _user_service;
+        
         #endregion
 
-        public UserService(IUserService userService, DbConnectionApp dbConnectionApp) {
-            _user_service = userService;
-            _db_connection_app =  dbConnectionApp;
+        //public UserService(DbConnectionApp dbConnectionApp) {
+           
+        //    _db_connection_app =  dbConnectionApp;
+        //}
+        public UserService()
+        {
         }
 
-        public  Task CreateUser(UserDto user_dto)
+        public  Task CreateUserAsync(UserDto user_dto)
         {
             if (user_dto == null) {
 
+                
                 return Task.CompletedTask;
 
             }
@@ -33,9 +38,10 @@ namespace LibraryManagementSys.Services
       
         }
 
-        public async Task FindUser()
+        public async Task FindUser(int id)
         {
-
+            var user = new UserDto { Id = id };
+            return Task.FromResult(Ok);s
         }
         public async Task UpdateUser()
         {
@@ -44,6 +50,11 @@ namespace LibraryManagementSys.Services
         public async Task DeleteUser()
         {
 
+        }
+
+       public   async Task<string> UserPing()
+        {
+            return await Task.FromResult("completed the USer Ping");
         }
     }
 }

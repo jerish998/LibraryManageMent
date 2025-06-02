@@ -1,8 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+
+﻿
 using Microsoft.AspNetCore.Authorization;
+
 
 using LibraryManagementSys.Services;
 using Microsoft.AspNetCore.Http.HttpResults;
+using LibraryManagementSys.Models;
+using Microsoft.AspNetCore.Mvc;
+
+
 
 namespace LibraryManagementSys.Controllers
 {
@@ -10,12 +16,12 @@ namespace LibraryManagementSys.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly AuthProviderService _authService;
-        public AuthController(AuthProviderService authProviderService) {
+
+        private readonly IAuthProviderService _authService;
+        public AuthController(IAuthProviderService authProviderService) {
+
             _authService = authProviderService;
         }
-
-
 
         [HttpPost("login")]
         public IActionResult Login( [FromBody] LoginModels login)
@@ -26,12 +32,6 @@ namespace LibraryManagementSys.Controllers
                 return Ok(new { token });
             }
             return Unauthorized("unauthorized");
-        }
-
-        public class LoginModels
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
         }
 
     }

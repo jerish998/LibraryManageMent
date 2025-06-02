@@ -11,63 +11,43 @@ namespace LibraryManagementSys.Controllers
     public class UserController : Controller
     {
         #region const 
-        private readonly UserService _userService;
-        public UserController(UserService userService)
+        private readonly IUserService _user_service;
+        public UserController(IUserService userService)
         {
-            _userService = userService;
+            _user_service = userService;
 
 
         }
 
         #endregion
-      
+
+        [HttpGet("{id}")]
+        public IActionResult GetUser(int id)
+        {
+            var name = _user_service.FindUser(id);
+            return Ok(new { Id = id, Name = name });
+        }
 
 
-        //[HttpPost]
-        //public async Task<IActionResult>  AddUser(User user_details)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
 
 
-   //         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
-
-   //     }
 
 
-        //    if (!user_details.ContactNumber.Any())
-        //{
-        //        return BadRequest("Requires Data missing");
-        //}
-        //UserDto user_dto = new UserDto();
-        //    user_dto.Name = user_details.UserName;
-        //    user_dto.Password = user_details.Password;
-        //    user_dto.Email = user_details.Email;
-        //      await _userService.CreateUser(user_dto);
 
 
-        //    //_context.Users.Add(user);
-        //    //await _context.SaveChangesAsync();
-
-        //    //return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
-
-        //}
+        [HttpGet("userping")]
+        public async Task<IActionResult> UserPing()
+        {
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> CreateUser([FromBody] UserCreateDto dto)
-        //{
-           
+            //var user = new User
+            //{
+            //    FullName = dto.FullName,
+            //    Email = dto.Email
+            //};
 
-        //    var user = new User
-        //    {
-        //        FullName = dto.FullName,
-        //        Email = dto.Email
-        //    };
-
-           
-        //}
-
-
+            var s = await _user_service.UserPing();
+            return Ok(s);
+        }
     }
 }

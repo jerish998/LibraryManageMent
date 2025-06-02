@@ -5,10 +5,10 @@ namespace LibraryManagementSys.Extensions
     // Extensions/MiddlewareExtensions.cs
     public static class MiddlewareExtensions
     {
-        public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder builder)
-        {
-            return builder.UseMiddleware<RequestLoggingMiddleware>();
-        }
+        //public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder builder)
+        //{
+        //   // return builder.UseMiddleware<RequestLoggingMiddleware>();
+        //}
     }
 
 }
