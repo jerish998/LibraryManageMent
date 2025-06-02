@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using Unity;
 using Unity.Microsoft.DependencyInjection;
 
+
 public class Program
 {
 
@@ -24,6 +25,7 @@ public class Program
         builder.Services.AddScoped<IAuthProviderService, AuthProviderService>();
         builder.Services.AddScoped<IUserService, UserService>();
         // Add controllers (for Web API)
+
         builder.Services.AddControllers();
 
         // Add Swagger if needed (optional)
@@ -83,13 +85,11 @@ public class Program
 
         app.UseAuthorization();
         app.UseAuthentication();
-
         app.MapControllers();
 
         app.Run();
 
     }
-
 
 
 

@@ -5,7 +5,9 @@ using System.Text;
 
 namespace LibraryManagementSys.Services
 {
+
     public class AuthProviderService :IAuthProviderService
+
     {
         private readonly IConfiguration _config;
         public AuthProviderService(IConfiguration configuration)
