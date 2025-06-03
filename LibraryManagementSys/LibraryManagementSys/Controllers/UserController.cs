@@ -22,10 +22,13 @@ namespace LibraryManagementSys.Controllers
         #endregion
 
         [HttpGet("{id}")]
-        public IActionResult GetUser(int id)
+        public ActionResult GetUsers(int id)
         {
-            var name = _user_service.FindUser(id);
-            return Ok(new { Id = id, Name = name });
+            var users = _user_service.FindUser(id);
+                
+                
+
+            return Ok(users); //  automatically serialized to JSON
         }
 
 
