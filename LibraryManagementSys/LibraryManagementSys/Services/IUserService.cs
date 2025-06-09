@@ -1,4 +1,5 @@
 ﻿using DTO;
+using System.Threading.Tasks;
 
 namespace LibraryManagementSys.Services
 {
@@ -6,8 +7,7 @@ namespace LibraryManagementSys.Services
     {
 
         Task CreateUserAsync(UserDto user_dto);
-
-        Task FindUser(int id);
+        Task<List<UserDto>> FindUser(int id);
         Task UpdateUser();
         Task DeleteUser();
 

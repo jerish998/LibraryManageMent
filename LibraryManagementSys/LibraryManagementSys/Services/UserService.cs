@@ -38,7 +38,7 @@ namespace LibraryManagementSys.Services
       
         }
 
-        public async Task<Iemmurable> FindUser(int id)
+        public async Task<List<UserDto>> FindUser(int id)
         {
           return _db_connection_app.Users
                 .Select(u => new UserDto
