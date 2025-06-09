@@ -1,15 +1,18 @@
 
 
+using LibraryManagementSys.DbContextApp;
 using LibraryManagementSys.Extensions;
 using LibraryManagementSys.Services;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Text;
 using System.Xml.Linq;
 using Unity;
 using Unity.Microsoft.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 
 public class Program
@@ -68,6 +71,8 @@ public class Program
             });
         });
 
+        builder.Services.AddDbContext<DbConnectionAppContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 

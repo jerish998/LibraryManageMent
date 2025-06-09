@@ -11,7 +11,7 @@ namespace LibraryManagementSys.Services
     {
         #region const
 
-        private readonly DbConnectionApp _db_connection_app;
+        private readonly DbConnectionAppContext _db_connection_app;
         
         #endregion
 
@@ -38,10 +38,16 @@ namespace LibraryManagementSys.Services
       
         }
 
-        public async Task FindUser(int id)
+        public async Task<List<UserDto>> FindUser(int id)
         {
-            var user = new UserDto { Id = id };
-            return Task.FromResult(Ok);s
+          return _db_connection_app.Users
+                .Select(u => new UserDto
+                {
+                    Id = u.UserId,
+                    Name = u.UserName,
+                    Email = u.Email
+                })
+                .ToList();
         }
         public async Task UpdateUser()
         {
