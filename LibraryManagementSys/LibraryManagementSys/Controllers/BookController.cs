@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSys.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.InteropServices;
 
@@ -22,7 +23,9 @@ namespace LibraryManagementSys.Controllers
         //{
         //    await 
         //}
-
+        [Authorize]
+        [HttpGet]
+        public IActionResult Favorite() => Ok("authorized");
 
 
     }
