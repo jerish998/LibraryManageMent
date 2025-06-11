@@ -21,12 +21,11 @@ namespace LibraryManagementSys.Controllers
 
         #endregion
 
+
         [HttpGet("{id}")]
         public ActionResult GetUsers(int id)
         {
             var users = _user_service.FindUser(id);
-
-
 
             return Ok(users); //  automatically serialized to JSON
         }
@@ -67,8 +66,6 @@ namespace LibraryManagementSys.Controllers
         }
 
 
-
-
         [HttpGet("userping")]
         public async Task<IActionResult> UserPing()
         {
@@ -79,6 +76,7 @@ namespace LibraryManagementSys.Controllers
             //    FullName = dto.FullName,
             //    Email = dto.Email
             //};
+
 
             var s = await _user_service.UserPing();
             return Ok(s);

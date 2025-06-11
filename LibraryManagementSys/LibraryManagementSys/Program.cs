@@ -79,7 +79,9 @@ public class Program
 
         var app = builder.Build();
 
+
         // Middleware pipeline
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -90,6 +92,7 @@ public class Program
 
         app.UseAuthorization();
         app.UseAuthentication();
+
         app.MapControllers();
 
         app.Run();
