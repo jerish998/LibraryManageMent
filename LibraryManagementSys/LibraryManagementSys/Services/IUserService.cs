@@ -9,9 +9,9 @@ namespace LibraryManagementSys.Services
 
         Task CreateUserAsync(User user);
         Task<List<UserDto>> FindUser(int id);
-        public Task<bool> UpdateUser(int user_id, UserDto user_dto);
+        Task<bool> UpdateUser(int user_id, UserDto user_dto);
         Task<bool> DeleteUser(int id);
-        public  Task<bool> UserExists(UserDto user_dto);
+         Task<bool> UserExists(UserDto user_dto);
 
         Task<string> UserPing();
     }
